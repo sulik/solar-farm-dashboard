@@ -1,11 +1,16 @@
 import * as solarPanelsDataGen from './data/solarPanelsDataGenerator'
 import React, { useState } from 'react'
 import SolarPanels from './components/SolarPanels/SolarPanels'
+import useInterval from './utils/useInterval'
 
 const solarPanelsDataConfig = solarPanelsDataGen.generateConfig(30)
 
 function App() {
-  const [solarPanelsData] = useState(solarPanelsDataGen.generateData(solarPanelsDataConfig))
+  const [solarPanelsData, setSolarPanelsData] = useState(solarPanelsDataGen.generateData(solarPanelsDataConfig))
+
+  useInterval(() => {
+    setSolarPanelsData(solarPanelsDataGen.generateData(solarPanelsDataConfig))
+  }, 10 * 1000)
 
   return (
     <div className="solar-farm-dashboard">
