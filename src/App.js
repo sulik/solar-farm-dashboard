@@ -9,7 +9,9 @@ function App() {
 
   return (
     <div className="solar-farm-dashboard">
-      <h1>Solar Farm <span>Dashboard</span></h1>
+      <header>
+        <h1>Solar Farm <span>Dashboard</span></h1>
+      </header>
       <SolarPanels data={solarPanelsData}/>
     </div>
   )
