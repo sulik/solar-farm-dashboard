@@ -6,7 +6,7 @@ function Totals() {
   const { power, energy } = totals
 
   return (
-    <div className="totals">
+    <div className="totals pane">
       <h2>Total</h2>
       <div className="details">
         <div>
