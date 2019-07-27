@@ -3,7 +3,7 @@ import { WeatherContext } from '../../utils/WeatherContext'
 
 function SolarActivity() {
   const { data } = useContext(WeatherContext)
-  const currentValue = data.length !== 0 && data[0].data['av_swsfcdown']
+  const currentValue = data.length !== 0 && data[0].visDiffDownSolarFlux
 
   return (
     <div className="solar-activity pane">

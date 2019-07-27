@@ -3,7 +3,7 @@ import { WeatherContext } from '../../utils/WeatherContext'
 
 function CloudCoverage() {
   const { data } = useContext(WeatherContext)
-  const currentValue = data.length !== 0 && data[0].data['av_ttl_cld']
+  const currentValue = data.length !== 0 && data[0].avgTotalCloudCoverage
 
   return (
     <div className="cloud-coverage pane">
