@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useContext } from 'react'
+import { SolarPanelsContext } from '../../utils/SolarPanelsContext'
 
-function SolarPanels({ data }) {
+function SolarPanels() {
+  const { data } = useContext(SolarPanelsContext)
+
   return (
     <div className="solar-panels">
       {data.map(panel => (
@@ -15,10 +17,6 @@ function SolarPanels({ data }) {
       ))}
     </div>
   )
-}
-
-SolarPanels.propTypes = {
-  data: PropTypes.array.isRequired
 }
 
 export default SolarPanels

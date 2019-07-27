@@ -1,13 +1,13 @@
 import * as solarPanelsDataGen from './data/solarPanelsDataGenerator'
-import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import React, { useContext } from 'react'
 import SolarPanels from './components/SolarPanels/SolarPanels'
 import Totals from './components/Totals/Totals'
 import useInterval from './utils/useInterval'
+import { SolarPanelsContext } from './utils/SolarPanelsContext'
 
-const solarPanelsDataConfig = solarPanelsDataGen.generateConfig(30)
-
-function App() {
-  const [solarPanelsData, setSolarPanelsData] = useState(solarPanelsDataGen.generateData(solarPanelsDataConfig))
+function App({ solarPanelsDataConfig }) {
+  const { setData: setSolarPanelsData } = useContext(SolarPanelsContext)
 
   useInterval(() => {
     setSolarPanelsData(solarPanelsDataGen.generateData(solarPanelsDataConfig))
@@ -18,10 +18,14 @@ function App() {
       <header>
         <h1>Solar Farm <span>Dashboard</span></h1>
       </header>
-      <Totals data={solarPanelsData}/>
-      <SolarPanels data={solarPanelsData}/>
+      <Totals/>
+      <SolarPanels/>
     </div>
   )
+}
+
+App.propTypes = {
+  solarPanelsDataConfig: PropTypes.array.isRequired
 }
 
 export default App

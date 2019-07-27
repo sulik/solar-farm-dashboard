@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import { getTotals } from '../../utils/data'
+import React, { useContext } from 'react'
+import { SolarPanelsContext } from '../../utils/SolarPanelsContext'
 
-function Totals({ data }) {
-  const { power, energy } = getTotals(data)
+function Totals() {
+  const { totals } = useContext(SolarPanelsContext)
+  const { power, energy } = totals
 
   return (
     <div className="totals">
@@ -24,10 +24,6 @@ function Totals({ data }) {
       </div>
     </div>
   )
-}
-
-Totals.propTypes = {
-  data: PropTypes.array.isRequired
 }
 
 export default Totals
