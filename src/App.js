@@ -1,6 +1,7 @@
 import * as solarPanelsDataGen from './data/solarPanelsDataGenerator'
 import React, { useState } from 'react'
 import SolarPanels from './components/SolarPanels/SolarPanels'
+import Totals from './components/Totals/Totals'
 import useInterval from './utils/useInterval'
 
 const solarPanelsDataConfig = solarPanelsDataGen.generateConfig(30)
@@ -17,6 +18,7 @@ function App() {
       <header>
         <h1>Solar Farm <span>Dashboard</span></h1>
       </header>
+      <Totals data={solarPanelsData}/>
       <SolarPanels data={solarPanelsData}/>
     </div>
   )
