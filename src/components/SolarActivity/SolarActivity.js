@@ -1,3 +1,4 @@
+import Chart from '../../utils/Chart'
 import React, { useContext } from 'react'
 import { WeatherContext } from '../../utils/WeatherContext'
 
@@ -7,6 +8,10 @@ function SolarActivity() {
 
   return (
     <div className="solar-activity pane">
+      <Chart
+        data={data}
+        dataKey="visDiffDownSolarFlux"
+        name="Diff Down Solar Flux"/>
       <div>
         <div className="value">
           {currentValue} W / m<sup>2</sup>

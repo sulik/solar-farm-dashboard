@@ -1,3 +1,4 @@
+import Chart from '../../utils/Chart'
 import React, { useContext } from 'react'
 import { WeatherContext } from '../../utils/WeatherContext'
 
@@ -7,6 +8,10 @@ function CloudCoverage() {
 
   return (
     <div className="cloud-coverage pane">
+      <Chart
+        data={data}
+        dataKey="avgTotalCloudCoverage"
+        name="Cloud Coverage"/>
       <div>
         <div className="value">
           {currentValue} %
