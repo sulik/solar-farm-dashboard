@@ -1,6 +1,8 @@
 import * as solarPanelsDataGen from './data/solarPanelsDataGenerator'
+import CloudCoverage from './components/CloudCoverage/CloudCoverage'
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
+import SolarActivity from './components/SolarActivity/SolarActivity'
 import SolarPanels from './components/SolarPanels/SolarPanels'
 import Totals from './components/Totals/Totals'
 import useInterval from './utils/useInterval'
@@ -18,7 +20,11 @@ function App({ solarPanelsDataConfig }) {
       <header>
         <h1>Solar Farm <span>Dashboard</span></h1>
       </header>
-      <Totals/>
+      <div className="overview">
+        <Totals/>
+        <SolarActivity/>
+        <CloudCoverage/>
+      </div>
       <SolarPanels/>
     </div>
   )
