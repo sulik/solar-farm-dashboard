@@ -15,8 +15,8 @@ export function generateConfig(length) {
 export function generateData(config) {
   return config.map(({ id, voltage, wattage }) => ({
     'id':      id,
-    'voltage': parseFloat(getNumberBetween(voltage[0], voltage[1]).toFixed(1)),
-    'wattage': parseInt(getNumberBetween(wattage[0], wattage[1]))
+    'voltage': Math.round(getNumberBetween(voltage[0], voltage[1]) * 10) / 10,
+    'wattage': Math.floor(getNumberBetween(wattage[0], wattage[1]))
   }))
 }
 
