@@ -1,15 +1,16 @@
 import Chart from '../common/Chart/Chart'
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { WeatherContext } from '../../utils/WeatherContext'
 
 function SolarActivity() {
   const { data } = useContext(WeatherContext)
-  const currentValue = data.length !== 0 && data[0].visDiffDownSolarFlux
+  const validData = useMemo(() => data.filter(item => item.visDiffDownSolarFlux), [data])
+  const currentValue = validData.length !== 0 && validData[0].visDiffDownSolarFlux
 
   return (
     <div className="solar-activity pane">
       <Chart
-        data={data}
+        data={validData}
         dataKey="visDiffDownSolarFlux"
         name="Diff Down Solar Flux"
         unit="W/m²"/>

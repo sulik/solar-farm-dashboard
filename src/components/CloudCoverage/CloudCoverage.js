@@ -1,15 +1,16 @@
 import Chart from '../common/Chart/Chart'
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { WeatherContext } from '../../utils/WeatherContext'
 
 function CloudCoverage() {
   const { data } = useContext(WeatherContext)
-  const currentValue = data.length !== 0 && data[0].avgTotalCloudCoverage
+  const validData = useMemo(() => data.filter(item => item.avgTotalCloudCoverage), [data])
+  const currentValue = validData.length !== 0 && validData[0].avgTotalCloudCoverage
 
   return (
     <div className="cloud-coverage pane">
       <Chart
-        data={data}
+        data={validData}
         dataKey="avgTotalCloudCoverage"
         name="Cloud Coverage"
         unit="%"/>
