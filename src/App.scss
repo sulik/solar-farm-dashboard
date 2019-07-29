@@ -4,6 +4,7 @@ header {
   flex-direction: column;
   h1 {
     font-size: 32px;
+    margin-bottom: 8px;
   }
   @media (min-width: 560px) {
     flex-direction: row;
@@ -12,6 +13,7 @@ header {
   @media (min-width: 768px) {
     h1 {
       font-size: 36px;
+      margin-bottom: 0;
     }
   }
 }
