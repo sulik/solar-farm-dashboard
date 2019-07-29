@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { XAxis, LineChart, Tooltip, Line, ResponsiveContainer } from 'recharts'
 
-function Chart({ data, dataKey, name, unit }) {
+function Chart({ data, dataKey, height = 50, name, unit, width = '100%' }) {
   return (
     <ResponsiveContainer
-      height={50}
-      width="100%">
+      height={height}
+      width={width}>
       <LineChart
         data={data}>
         <XAxis
@@ -29,8 +29,10 @@ function Chart({ data, dataKey, name, unit }) {
 Chart.propTypes = {
   data:     PropTypes.array.isRequired,
   dataKey:  PropTypes.string.isRequired,
+  height:   PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   name:     PropTypes.string,
-  unit:     PropTypes.string
+  unit:     PropTypes.string,
+  width:    PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
 export default Chart
