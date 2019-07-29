@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 export function generateConfig(length) {
   const makeId = () => Math.random().toString(36).substring(2, 7).toUpperCase()
   const makeRange = (min, max, step) => {
@@ -15,6 +17,7 @@ export function generateConfig(length) {
 export function generateData(config) {
   return config.map(({ id, voltage, wattage }) => ({
     'id':      id,
+    'time':    moment().format('HH:mm:ss MMM DD'),
     'voltage': Math.round(getNumberBetween(voltage[0], voltage[1]) * 10) / 10,
     'wattage': Math.floor(getNumberBetween(wattage[0], wattage[1]))
   }))
