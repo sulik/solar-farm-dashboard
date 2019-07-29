@@ -12,7 +12,8 @@ const solarPanelsDataConfig = solarPanelsDataGen.generateConfig(30)
 
 function Index() {
   const solarPanelsInitialData = solarPanelsDataGen.generateData(solarPanelsDataConfig)
-  const solarPanelsInitialTotals = getTotals(solarPanelsInitialData)
+  const solarPanelsHistoryData = solarPanelsDataGen.generateHistoryData(solarPanelsDataConfig, 50)
+  const solarPanelsInitialTotals = solarPanelsHistoryData.map(item => getTotals(item))
   const weatherInitialData = prepareWeatherData(weatherForecastMock.entries)
 
   return (

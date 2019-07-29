@@ -7,7 +7,7 @@ export const SolarPanelsContext = createContext({})
 
 export const SolarPanelsContextProvider = props => {
   const { children, data: initialData, totals: initialTotals } = props
-  const initialContextData = { data: initialData, totals: [initialTotals] }
+  const initialContextData = { data: initialData, totals: initialTotals }
   const [contextData, setContextData] = useState(initialContextData)
   const { data, totals } = contextData
 
@@ -28,5 +28,5 @@ export const SolarPanelsContextProvider = props => {
 SolarPanelsContextProvider.propTypes = {
   children: MorePropTypes.children.isRequired,
   data:     PropTypes.array.isRequired,
-  totals:   PropTypes.object.isRequired
+  totals:   PropTypes.array.isRequired
 }
