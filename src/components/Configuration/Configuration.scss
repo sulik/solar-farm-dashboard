@@ -32,4 +32,43 @@
       margin-right: 4px;
     }
   }
+  .modal {
+    position: absolute;
+    z-index: 9;
+    top: 100%;
+    right: 0;
+    padding: 30px;
+    white-space: nowrap;
+    background: #fff;
+    color: #000;
+    input {
+      &[type="text"] {
+        display: block;
+        width: 100%;
+        margin-top: 4px;
+        padding: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        font-size: 17px;
+        outline: none;
+        &:focus {
+          border-color: rgba(0, 0, 0, 1);
+        }
+      }
+      &[type="checkbox"] {
+        margin: 0 6px 0 0;
+      }
+    }
+    label {
+      user-select: none;
+    }
+    .option {
+      &:nth-of-type(n+2) {
+        margin-top: 14px;
+      }
+      &.checkbox {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
 }

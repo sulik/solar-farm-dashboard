@@ -1,3 +1,4 @@
+import ConfigurationModal from './ConfigurationModal'
 import React, { useState } from 'react'
 import { ReactComponent as Icon } from '../../assets/icon-config.svg'
 
@@ -14,6 +15,7 @@ function Configuration() {
         <Icon/>
         Configuration
       </button>
+      <ConfigurationModal open={open}/>
     </div>
   )
 }
