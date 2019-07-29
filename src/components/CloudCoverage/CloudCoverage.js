@@ -1,5 +1,6 @@
 import Chart from '../common/Chart/Chart'
 import React, { useContext, useMemo } from 'react'
+import WeatherApiBadge from '../common/WeatherApiBadge/WeatherApiBadge'
 import { WeatherContext } from '../../utils/WeatherContext'
 
 function CloudCoverage() {
@@ -8,7 +9,8 @@ function CloudCoverage() {
   const currentValue = validData.length !== 0 && validData[0].avgTotalCloudCoverage
 
   return (
-    <div className="cloud-coverage pane">
+    <div className="cloud-coverage pane has-badge">
+      <WeatherApiBadge/>
       <Chart
         data={validData}
         dataKey="avgTotalCloudCoverage"

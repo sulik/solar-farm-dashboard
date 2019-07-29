@@ -1,5 +1,6 @@
 import Chart from '../common/Chart/Chart'
 import React, { useContext, useMemo } from 'react'
+import WeatherApiBadge from '../common/WeatherApiBadge/WeatherApiBadge'
 import { WeatherContext } from '../../utils/WeatherContext'
 
 function SolarActivity() {
@@ -8,7 +9,8 @@ function SolarActivity() {
   const currentValue = validData.length !== 0 && validData[0].visDiffDownSolarFlux
 
   return (
-    <div className="solar-activity pane">
+    <div className="solar-activity pane has-badge">
+      <WeatherApiBadge/>
       <Chart
         data={validData}
         dataKey="visDiffDownSolarFlux"
