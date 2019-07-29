@@ -1,4 +1,4 @@
-import Chart from '../../utils/Chart'
+import Chart from '../common/Chart/Chart'
 import React, { useContext } from 'react'
 import { SolarPanelsContext } from '../../utils/SolarPanelsContext'
 
