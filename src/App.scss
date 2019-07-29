@@ -1,6 +1,21 @@
 header {
   margin: 20px 5px 10px;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    font-size: 32px;
+  }
+  @media (min-width: 560px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 36px;
+    }
+  }
 }
+
 .overview {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
