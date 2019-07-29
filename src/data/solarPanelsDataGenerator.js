@@ -14,13 +14,20 @@ export function generateConfig(length) {
   }))
 }
 
-export function generateData(config) {
+export function generateData(config, definedTime) {
   return config.map(({ id, voltage, wattage }) => ({
     'id':      id,
-    'time':    moment().format('HH:mm:ss MMM DD'),
+    'time':    definedTime || moment().format('HH:mm:ss MMM DD'),
     'voltage': Math.round(getNumberBetween(voltage[0], voltage[1]) * 10) / 10,
     'wattage': Math.floor(getNumberBetween(wattage[0], wattage[1]))
   }))
+}
+
+export function generateHistoryData(config, length) {
+  return Array.from({ length: length }).map((item, i) => {
+    const time = moment().subtract(i * 10, 'seconds').format('HH:mm:ss MMM DD')
+    return generateData(config, time)
+  })
 }
 
 function getNumberBetween(min, max) {
