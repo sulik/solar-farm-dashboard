@@ -23,7 +23,7 @@ function Totals() {
           <div>Total Power</div>
         </div>
         <div>
-          <div className="value">
+          <div className="energy value">
             {energy} MWh
           </div>
           <div>Total Energy</div>

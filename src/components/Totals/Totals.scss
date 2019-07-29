@@ -1,13 +1,18 @@
 .totals {
   h2 {
     margin: 0 0 12px;
+    font-size: 22px;
   }
   .details {
     display: flex;
+    white-space: nowrap;
     > div {
-      &:nth-child(2) {
+      &:nth-of-type(n+2) {
         margin-left: 30px;
       }
     }
+  }
+  .energy {
+    color: #25b6e0;
   }
 }
