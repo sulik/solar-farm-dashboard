@@ -1,5 +1,6 @@
 import * as solarPanelsDataGen from './data/solarPanelsDataGenerator'
 import CloudCoverage from './components/CloudCoverage/CloudCoverage'
+import Configuration from './components/Configuration/Configuration'
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
 import SolarActivity from './components/SolarActivity/SolarActivity'
@@ -19,6 +20,7 @@ function App({ solarPanelsDataConfig }) {
     <div className="solar-farm-dashboard">
       <header>
         <h1>Solar Farm <span>Dashboard</span></h1>
+        <Configuration/>
       </header>
       <div className="overview">
         <Totals/>
