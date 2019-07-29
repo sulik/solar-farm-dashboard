@@ -12,6 +12,7 @@ export const SolarPanelsContextProvider = props => {
   const { data, totals } = contextData
 
   const setData = data => {
+    if (totals.length === 50) totals.shift()
     setContextData({
       data,
       totals: [...totals, getTotals(data)]
