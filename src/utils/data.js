@@ -1,4 +1,6 @@
 import moment from 'moment'
+import qs from 'query-string'
+import { apiConfig } from '../config'
 
 export function prepareWeatherData(data) {
   return data.map(item => ({
@@ -16,4 +18,23 @@ export function getTotals(data) {
   const energy = Math.floor((power * 60))
 
   return { time, power, energy }
+}
+
+export async function getWeatherData() {
+  const queryString = qs.stringify({
+    apikey: apiConfig.weatherApiKey,
+    count:  18,
+    lat:    49.5,
+    lon:    -50.5,
+    var:    'av_swsfcdown,av_ttl_cld'
+  })
+  const url = `${apiConfig.weatherApiUrl}?${queryString}`
+
+  return fetch(url)
+    .then(response => response.json())
+    .catch(error => {
+      // eslint-disable-next-line no-console
+      console.log(error)
+      alert(error)
+    })
 }
