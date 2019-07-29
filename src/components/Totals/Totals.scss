@@ -15,4 +15,17 @@
   .energy {
     color: #25b6e0;
   }
+  .chart {
+    height: 50px;
+    @media (min-width: 768px) {
+      position: absolute;
+      top: 0;
+      right: 12px;
+      bottom: 0;
+      left: 50%;
+      margin: auto 0 auto auto;
+      max-width: calc(50% - 18px);
+      height: 100px;
+    }
+  }
 }
