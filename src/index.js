@@ -4,6 +4,8 @@ import App from './App'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import weatherForecastMock from './data/weatherForecastMock'
+import { appConfig } from './config'
+import { ConfigContextProvider } from './utils/ConfigContext'
 import { getTotals, prepareWeatherData } from './utils/data'
 import { SolarPanelsContextProvider } from './utils/SolarPanelsContext'
 import { WeatherContextProvider } from './utils/WeatherContext'
@@ -17,13 +19,15 @@ function Index() {
   const weatherInitialData = prepareWeatherData(weatherForecastMock.entries)
 
   return (
-    <SolarPanelsContextProvider
-      data={solarPanelsInitialData}
-      totals={solarPanelsInitialTotals}>
-      <WeatherContextProvider data={weatherInitialData}>
-        <App solarPanelsDataConfig={solarPanelsDataConfig}/>
-      </WeatherContextProvider>
-    </SolarPanelsContextProvider>
+    <ConfigContextProvider config={appConfig}>
+      <SolarPanelsContextProvider
+        data={solarPanelsInitialData}
+        totals={solarPanelsInitialTotals}>
+        <WeatherContextProvider data={weatherInitialData}>
+          <App solarPanelsDataConfig={solarPanelsDataConfig}/>
+        </WeatherContextProvider>
+      </SolarPanelsContextProvider>
+    </ConfigContextProvider>
   )
 }
 
