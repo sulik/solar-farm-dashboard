@@ -27,12 +27,12 @@ function Chart({ data, dataKey, height = 50, name, unit, width = '100%' }) {
 }
 
 Chart.propTypes = {
-  data:     PropTypes.array.isRequired,
-  dataKey:  PropTypes.string.isRequired,
-  height:   PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  name:     PropTypes.string,
-  unit:     PropTypes.string,
-  width:    PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  data:    PropTypes.array.isRequired,
+  dataKey: PropTypes.string.isRequired,
+  height:  PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  name:    PropTypes.string,
+  unit:    PropTypes.string,
+  width:   PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
 export default Chart
