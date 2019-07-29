@@ -6,14 +6,15 @@ import { getTotals } from './data'
 export const SolarPanelsContext = createContext({})
 
 export const SolarPanelsContextProvider = props => {
-  const { children, data: initialData } = props
-  const [contextData, setContextData] = useState({ data: initialData, totals: getTotals(initialData) })
+  const { children, data: initialData, totals: initialTotals } = props
+  const initialContextData = { data: initialData, totals: [initialTotals] }
+  const [contextData, setContextData] = useState(initialContextData)
   const { data, totals } = contextData
 
   const setData = data => {
     setContextData({
       data,
-      totals: getTotals(data)
+      totals: [...totals, getTotals(data)]
     })
   }
 
@@ -26,5 +27,6 @@ export const SolarPanelsContextProvider = props => {
 
 SolarPanelsContextProvider.propTypes = {
   children: MorePropTypes.children.isRequired,
-  data:     PropTypes.array.isRequired
+  data:     PropTypes.array.isRequired,
+  totals:   PropTypes.object.isRequired
 }
