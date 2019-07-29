@@ -1,8 +1,16 @@
 import React, { useContext } from 'react'
+import { animated, useTransition, config as springConfig } from 'react-spring'
 import { ConfigContext } from '../../utils/ConfigContext'
 
 function ConfigurationModal({ open }) {
   const { config, setSolarPanelsInterval, setWeatherInterval, setWeatherApiEnabled } = useContext(ConfigContext)
+  const transitions = useTransition(open, null, {
+    from:   { opacity: 0, y: -4 },
+    enter:  { opacity: 1, y: 0 },
+    leave:  { opacity: 0, y: -4 },
+    config: springConfig.stiff
+  })
+  const translateY = y => `translate3d(0,${y}%,0)`
 
   const handleOnSolarPanelsIntervalChange = event => {
     setSolarPanelsInterval(parseInt(event.target.value))
@@ -14,8 +22,11 @@ function ConfigurationModal({ open }) {
     setWeatherApiEnabled(event.target.checked)
   }
 
-  return open && (
-    <div className="modal">
+  return transitions.map(({ item, key, props: { opacity, y } }) => item && (
+    <animated.div
+      className="modal"
+      key={key}
+      style={{ opacity, transform: y.interpolate(translateY) }}>
       <div className="option">
         <label htmlFor="solar-panels-interval">
           Solar panels update interval
@@ -46,8 +57,8 @@ function ConfigurationModal({ open }) {
           Use real weather API
         </label>
       </div>
-    </div>
-  )
+    </animated.div>
+  ))
 }
 
 export default ConfigurationModal
