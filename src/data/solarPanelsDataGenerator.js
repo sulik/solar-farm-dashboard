@@ -10,7 +10,7 @@ export function generateConfig(length) {
   return Array.from({ length: length }).map(() => ({
     id:      makeId(),
     voltage: makeRange(2800, 6000, 500),
-    wattage: makeRange(100000, 600000, 200000)
+    wattage: makeRange(50000, 200000, 600000)
   }))
 }
 
