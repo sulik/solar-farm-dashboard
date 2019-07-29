@@ -17,13 +17,48 @@ header {
 }
 
 .overview {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 0 5px;
-  overflow: hidden;
   > div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-basis: 100%;
+    max-width: calc(100% - #{$pane-margin});
+    &.totals {
+      position: relative;
+    }
+  }
+  @media (min-width: 768px) {
+    .solar-activity,
+    .cloud-coverage {
+      max-width: calc(50% - #{$pane-margin});
+    }
+  }
+  @media (min-width: 992px) {
+    .totals {
+      max-width: calc(50% - #{$pane-margin});
+    }
+    .solar-activity,
+    .cloud-coverage {
+      max-width: calc(25% - #{$pane-margin});
+    }
+  }
+  @media (min-width: 1200px) {
+    .totals {
+      max-width: calc(40% - #{$pane-margin});
+    }
+    .solar-activity,
+    .cloud-coverage {
+      max-width: calc(30% - #{$pane-margin});
+    }
+  }
+  @media (min-width: 1400px) {
+    .totals,
+    .solar-activity,
+    .cloud-coverage {
+      max-width: calc(100% / 3 - #{$pane-margin});
+    }
   }
 }
