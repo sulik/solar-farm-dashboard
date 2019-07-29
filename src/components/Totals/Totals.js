@@ -14,7 +14,7 @@ function Totals() {
         dataKey="energy"
         height="100%"
         name="Energy"
-        unit="kWh"/>
+        unit="MWh"/>
       <div className="details">
         <div>
           <div className="value">

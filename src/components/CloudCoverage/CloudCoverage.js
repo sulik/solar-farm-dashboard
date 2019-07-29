@@ -11,7 +11,8 @@ function CloudCoverage() {
       <Chart
         data={data}
         dataKey="avgTotalCloudCoverage"
-        name="Cloud Coverage"/>
+        name="Cloud Coverage"
+        unit="%"/>
       <div>
         <div className="value">
           {currentValue} %

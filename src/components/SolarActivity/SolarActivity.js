@@ -11,7 +11,8 @@ function SolarActivity() {
       <Chart
         data={data}
         dataKey="visDiffDownSolarFlux"
-        name="Diff Down Solar Flux"/>
+        name="Diff Down Solar Flux"
+        unit="W/m²"/>
       <div>
         <div className="value">
           {currentValue} W / m<sup>2</sup>
