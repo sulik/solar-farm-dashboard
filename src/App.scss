@@ -33,8 +33,7 @@ header {
     }
   }
   @media (min-width: 768px) {
-    .solar-activity,
-    .cloud-coverage {
+    .weather {
       max-width: calc(50% - #{$pane-margin});
     }
   }
@@ -42,8 +41,7 @@ header {
     .totals {
       max-width: calc(50% - #{$pane-margin});
     }
-    .solar-activity,
-    .cloud-coverage {
+    .weather {
       max-width: calc(25% - #{$pane-margin});
     }
   }
@@ -51,15 +49,13 @@ header {
     .totals {
       max-width: calc(40% - #{$pane-margin});
     }
-    .solar-activity,
-    .cloud-coverage {
+    .weather {
       max-width: calc(30% - #{$pane-margin});
     }
   }
   @media (min-width: 1400px) {
     .totals,
-    .solar-activity,
-    .cloud-coverage {
+    .weather {
       max-width: calc(100% / 3 - #{$pane-margin});
     }
   }
