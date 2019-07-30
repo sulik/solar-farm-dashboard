@@ -17,10 +17,12 @@ function ConfigurationModal({ open }) {
   const translateY = y => `translate3d(0,${y}%,0)`
 
   const handleOnSolarPanelsIntervalChange = event => {
-    setSolarPanelsInterval(parseInt(event.target.value))
+    const value = parseInt(event.target.value)
+    if (value) setSolarPanelsInterval(value)
   }
   const handleOnWeatherIntervalChange = event => {
-    setWeatherInterval(parseInt(event.target.value))
+    const value = parseInt(event.target.value)
+    if (value) setWeatherInterval(value)
   }
   const handleOnWeatherApiEnabledChange = async(event) => {
     setWeatherApiEnabled(event.target.checked)
