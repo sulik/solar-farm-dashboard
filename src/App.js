@@ -1,12 +1,11 @@
 import * as solarPanelsDataGen from './data/solarPanelsDataGenerator'
-import CloudCoverage from './components/CloudCoverage/CloudCoverage'
 import Configuration from './components/Configuration/Configuration'
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
-import SolarActivity from './components/SolarActivity/SolarActivity'
 import SolarPanels from './components/SolarPanels/SolarPanels'
 import Totals from './components/Totals/Totals'
 import useInterval from './utils/useInterval'
+import Weather from './components/Weather/Weather'
 import weatherForecastMock from './data/weatherForecastMock'
 import { ConfigContext } from './utils/ConfigContext'
 import { getWeatherData, prepareWeatherData } from './utils/data'
@@ -36,8 +35,16 @@ function App({ solarPanelsDataConfig }) {
       </header>
       <div className="overview">
         <Totals/>
-        <SolarActivity/>
-        <CloudCoverage/>
+        <Weather
+          chartName="Diff Down Solar Flux"
+          dataKey="visDiffDownSolarFlux"
+          name="Visible Diffuse Down Solar Flux"
+          unit="W/m²"/>
+        <Weather
+          chartName="Cloud Coverage"
+          dataKey="avgTotalCloudCoverage"
+          name="Average Total Cloud Coverage"
+          unit="%"/>
       </div>
       <SolarPanels/>
     </div>
