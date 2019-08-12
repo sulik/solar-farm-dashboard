@@ -14,10 +14,10 @@ export function generateConfig(length) {
   }))
 }
 
-export function generateData(config, definedTime) {
+export function generateData(config, time) {
   return config.map(({ id, voltage, wattage }) => ({
     'id':      id,
-    'time':    definedTime || moment().format('HH:mm:ss MMM DD'),
+    'time':    time || moment().format('HH:mm:ss MMM DD'),
     'voltage': Math.round(getNumberBetween(voltage[0], voltage[1]) * 10) / 10,
     'wattage': Math.floor(getNumberBetween(wattage[0], wattage[1]))
   }))
@@ -30,6 +30,6 @@ export function generateHistoryData(config, length) {
   })
 }
 
-function getNumberBetween(min, max) {
+export function getNumberBetween(min, max) {
   return Math.random() * (max - min + 1) + min
 }
