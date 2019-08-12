@@ -20,10 +20,12 @@ function ConfigurationModal({ open }) {
     const value = parseInt(event.target.value)
     if (value) setSolarPanelsInterval(value)
   }
+
   const handleOnWeatherIntervalChange = event => {
     const value = parseInt(event.target.value)
     if (value) setWeatherInterval(value)
   }
+
   const handleOnWeatherApiEnabledChange = async(event) => {
     setWeatherApiEnabled(event.target.checked)
     const weatherData = event.target.checked ? await getWeatherData() : weatherForecastMock
