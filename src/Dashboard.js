@@ -12,7 +12,7 @@ import { getWeatherData, prepareWeatherData } from './utils/data'
 import { SolarPanelsContext } from './utils/SolarPanelsContext'
 import { WeatherContext } from './utils/WeatherContext'
 
-function App({ solarPanelsDataConfig }) {
+function Dashboard({ solarPanelsDataConfig }) {
   const { setData: setSolarPanelsData } = useContext(SolarPanelsContext)
   const { setData: setWeatherData } = useContext(WeatherContext)
   const { config, setWeatherApiEnabled } = useContext(ConfigContext)
@@ -51,8 +51,8 @@ function App({ solarPanelsDataConfig }) {
   )
 }
 
-App.propTypes = {
+Dashboard.propTypes = {
   solarPanelsDataConfig: PropTypes.array.isRequired
 }
 
-export default App
+export default Dashboard
